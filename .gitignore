@@ -1,0 +1,82 @@
+# Gradle
+.gradle/
+build/
+!build/libs/
+!build/libs/*.jar
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# IDE - Eclipse
+.classpath
+.project
+.settings/
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# IDE - VS Code
+.vscode/
+
+# Minecraft
+run/
+runs/
+logs/
+*.log
+crash-reports/
+debug.log
+latest.log
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+
+# Java
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+!build/libs/*.jar
+
+# Generated files (uncomment if you don't want to commit generated resources)
+# src/generated/
+
+# User-specific files
+*.orig
+
+# Package Files
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+
+# Mixin
+*.refmap.json
+!src/main/resources/*.refmap.json
+

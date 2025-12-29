@@ -8,10 +8,8 @@
     "AssemblyOperatorBlockItemMixin",
     "BeltBlockEntityAccessor",
     "BeltBlockEntityMixin",
-
-
+    "BlockItemMixin",
     "CrushingWheelBlockMixin",
-
     "BeltMovementHandlerMixin",
     "CrushingWheelControllerBlockMixin",
     "FlapDisplayBlockEntityMixin",

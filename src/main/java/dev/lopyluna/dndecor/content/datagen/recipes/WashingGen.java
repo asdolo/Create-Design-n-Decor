@@ -45,6 +45,6 @@ public class WashingGen extends ProcessingDnDecorRecipeGen {
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
-
+        super.buildRecipes(consumer);
     }
 }

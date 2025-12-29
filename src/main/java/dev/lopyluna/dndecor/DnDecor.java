@@ -28,7 +28,6 @@ import org.slf4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-;
 @Mod(DnDecor.MOD_ID)
 @SuppressWarnings("removal")
 public class DnDecor {
@@ -48,7 +47,6 @@ public class DnDecor {
                     new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
                             .andThen(TooltipModifier.mapNull(KineticStats.create(item)))
             );
-    ;
 
     static {
         REGISTRATE.setTooltipModifierFactory(item -> new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
@@ -125,7 +123,7 @@ public class DnDecor {
     public static KineticStats create(Item item) {
         if (item instanceof BlockItem blockItem) {
             Block block = blockItem.getBlock();
-            if (block instanceof IRotate) return new KineticStats(block);
+            if (block != null && block instanceof IRotate) return new KineticStats(block);
         }
         return null;
     }
