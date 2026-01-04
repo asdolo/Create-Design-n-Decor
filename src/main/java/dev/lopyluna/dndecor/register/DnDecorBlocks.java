@@ -40,6 +40,8 @@ import dev.lopyluna.dndecor.content.blocks.frontlight.FrontlightBlock;
 import dev.lopyluna.dndecor.content.blocks.metal_supports.DiagonalMetalSupportBlock;
 import dev.lopyluna.dndecor.content.blocks.metal_supports.DiagonalMetalSupportCtBehavior;
 import dev.lopyluna.dndecor.content.blocks.metal_supports.MetalSupportBlock;
+import dev.lopyluna.dndecor.content.blocks.breaker_switch.BreakerSwitchBlock;
+import dev.lopyluna.dndecor.content.blocks.breaker_switch.LeverGenerator;
 import dev.lopyluna.dndecor.content.blocks.stepped_lever.SteppedLeverBlock;
 import dev.lopyluna.dndecor.content.blocks.storage_container.ColoredStorageContainerBlock;
 import dev.lopyluna.dndecor.content.blocks.storage_container.ColoredStorageContainerCTBehaviour;
@@ -141,6 +143,29 @@ public class DnDecorBlocks {
             .item()
             .transform(customItemModel())
             .register();
+
+    public static final BlockEntry<BreakerSwitchBlock> BREAKER_SWITCH =
+            REGISTRATE.block("breaker_switch", BreakerSwitchBlock::new)
+                    .initialProperties(() -> Blocks.LEVER)
+                    .transform(axeOrPickaxe())
+                    .addLayer(() -> RenderType::cutoutMipped)
+                    .blockstate(new LeverGenerator()::generate)
+                    .onRegister(ItemUseOverrides::addBlock)
+                    .lang("Breaker Switch")
+                    .recipe((c, p) ->
+                            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, c.get(), 1)
+                                    .pattern(" S ")
+                                    .pattern("BBB")
+                                    .pattern("RRR")
+                                    .define('S', Items.STICK)
+                                    .define('B', commonItemTag("nuggets/brass"))
+                                    .define('R', Items.REDSTONE)
+                                    .unlockedBy("has_" + c.getName(), has(c.get()))
+                                    .save(p, DnDecor.asResource("crafting/" + c.getName()))
+                    )
+                    .item()
+                    .transform(customItemModel())
+                    .register();
 
 
     public static final BlockEntry<MetalSupportBlock> METAL_SUPPORT = REGISTRATE.block("metal_support", MetalSupportBlock::new)
